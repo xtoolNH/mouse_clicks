@@ -1,4 +1,5 @@
 # Code to check if left or right mouse buttons were pressed
+import os
 import sys
 import win32api
 from datetime import datetime
@@ -28,6 +29,9 @@ fullCmdArguments = sys.argv
 argumentList = fullCmdArguments[1:]
 # Read Further Arguments
 username = argumentList[0]
+
+if not os.path.isdir('logs/'):
+    os.mkdir('logs/')
 
 # Define Folder Paths for Read - Write Operations
 logging.basicConfig(filename='logs/' + username + '.log', level=logging.DEBUG)
